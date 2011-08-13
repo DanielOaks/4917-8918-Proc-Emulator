@@ -59,7 +59,7 @@ class processor(microprocessor):
             self.instruction_codes[str(self.registers['is'])][0]()
         
         else:
-            print('unknown command, skipping:', self.registers['ip'], ',',  self.memory_locations[self.registers['ip']])
+            print('\nunknown command, skipping:', self.registers['ip'], ',',  self.memory_locations[self.registers['ip']])
             self.registers['ip'] = self.registers['ip'] + 1
     
     

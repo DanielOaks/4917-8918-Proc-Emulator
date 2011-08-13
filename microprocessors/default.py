@@ -21,7 +21,7 @@ class microprocessor:
     
     def clear_memory_locations(self):
         self.memory_locations = []
-        for i in range(0, self.bitlength ** 2):
+        for i in range(0, self.bitlength ** 2): # ugly magic number to get memory location size
             self.memory_locations.append(0)
     
     

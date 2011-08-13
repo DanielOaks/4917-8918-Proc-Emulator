@@ -3,7 +3,7 @@
 
 9 10  'r is counter
 10 1  'r is what we decrement by each loop
-	
+	87
 	11 7  'replace 0 on next line with r0
 	8 0  'print subbed-in r0
 	

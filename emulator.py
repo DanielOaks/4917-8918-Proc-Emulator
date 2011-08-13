@@ -7,7 +7,7 @@ custom_processor = processor()
 custom_processor.initialise()
 
 #custom_processor.load_program('examples/countdown.4917')
-custom_processor.load_program('examples/countdown.8918')
+custom_processor.load_program('examples/helloworld.8918')
 
 #print(custom_processor.memory_locations)
 
