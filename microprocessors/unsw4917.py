@@ -64,31 +64,31 @@ class processor(microprocessor):
     
     
     def ins_halt(self):
-        print('halt')
+        #print('halt')
         exit()
     
     def ins_add(self):
-        print('r0 = r0(%s) + r1(%s)' % (self.registers['r0'], self.registers['r1']))
+        #print('r0 = r0(%s) + r1(%s)' % (self.registers['r0'], self.registers['r1']))
         self.registers['r0'] = self.registers['r0'] + self.registers['r1']
     
     def ins_subtract(self):
-        print('r0 = r0(%s) - r1(%s)' % (self.registers['r0'], self.registers['r1']))
+        #print('r0 = r0(%s) - r1(%s)' % (self.registers['r0'], self.registers['r1']))
         self.registers['r0'] = self.registers['r0'] - self.registers['r1']
     
     def ins_increment_r0(self):
-        print('r0 = r0(%s) + 1' % (self.registers['r0']))
+        #print('r0 = r0(%s) + 1' % (self.registers['r0']))
         self.registers['r0'] = self.registers['r0'] + 1
     
     def ins_increment_r1(self):
-        print('r1 = r1(%s) + 1' % (self.registers['r1']))
+        #print('r1 = r1(%s) + 1' % (self.registers['r1']))
         self.registers['r1'] = self.registers['r1'] + 1
     
     def ins_decrement_r0(self):
-        print('r0 = r0(%s) - 1' % (self.registers['r0']))
+        #print('r0 = r0(%s) - 1' % (self.registers['r0']))
         self.registers['r0'] = self.registers['r0'] - 1
     
     def ins_decrement_r1(self):
-        print('r1 = r1(%s) - 1' % (self.registers['r1']))
+        #print('r1 = r1(%s) - 1' % (self.registers['r1']))
         self.registers['r1'] = self.registers['r1'] - 1
     
     def ins_bell(self):
@@ -98,38 +98,40 @@ class processor(microprocessor):
         print(self.memory_locations[self.registers['ip'] - 1])
     
     def ins_load_into_r0(self):
-        print('r0 =', self.memory_locations[self.registers['ip'] - 1])
+        #print('r0 =', self.memory_locations[self.registers['ip'] - 1])
         self.registers['r0'] = self.memory_locations[self.registers['ip'] - 1]
     
     def ins_load_into_r1(self):
-        print('r1 =', self.memory_locations[self.registers['ip'] - 1])
+        #print('r1 =', self.memory_locations[self.registers['ip'] - 1])
         self.registers['r1'] = self.memory_locations[self.registers['ip'] - 1]
     
     def ins_load_from_r0(self):
-        print('memory_location[%s] = r0(%s)' % (self.memory_locations[self.registers['ip'] - 1], self.registers['r0']))
+        #print('memory_location[%s] = r0(%s)' % (self.memory_locations[self.registers['ip'] - 1], self.registers['r0']))
         self.memory_locations[self.memory_locations[self.registers['ip'] - 1]] = self.registers['r0']
     
     def ins_load_from_r1(self):
-        print('memory_location[%s] = r1(%s)' % (self.memory_locations[self.registers['ip'] - 1], self.registers['r1']))
+        #print('memory_location[%s] = r1(%s)' % (self.memory_locations[self.registers['ip'] - 1], self.registers['r1']))
         self.memory_locations[self.memory_locations[self.registers['ip'] - 1]] = self.registers['r1']
     
     def ins_jump(self):
-        print('jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
+        #print('jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
         self.registers['ip'] = self.memory_locations[self.registers['ip'] - 1]
     
     def ins_jump_if_0(self):
         if self.registers['r0'] == 0:
-            print('jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
+            #print('jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
             self.registers['ip'] = self.memory_locations[self.registers['ip'] - 1]
         else:
-            print('not jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
+            #print('not jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
+            ...
     
     def ins_jump_if_not_0(self):
         if self.registers['r0'] != 0:
-            print('jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
+            #print('jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
             self.registers['ip'] = self.memory_locations[self.registers['ip'] - 1]
         else:
-            print('not jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
+            #print('not jumping from %s to %s' % (self.registers['ip'] - 2, self.memory_locations[self.registers['ip'] - 1]))
+            ...
     
 
 def return_next_word(file):
@@ -137,6 +139,11 @@ def return_next_word(file):
     word = ''
     while 1:
         char = file.read(1)
+        if char == "'":
+            while char != '\n':
+                char = file.read(1)
+                if char == '':
+                    break
         if skip_whitespace:
             if char.isspace():
                 ...
