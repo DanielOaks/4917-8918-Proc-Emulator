@@ -10,10 +10,9 @@ class microprocessor:
         self.bitlength = 0
     
     
-    def start(self):
+    def initialise(self):
         self.clear_registers()
         self.clear_memory_locations()
-        self.run_program()
     
     
     def clear_registers(self):
@@ -31,4 +30,8 @@ class microprocessor:
             self.step_program()
     
     def step_program(self):
+        ...
+    
+    
+    def load_program(self, path=None):
         ...
