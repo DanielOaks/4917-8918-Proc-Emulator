@@ -4,6 +4,7 @@ from .default import microprocessor
 
 class processor(microprocessor):
     name = 'unsw4917'
+    extension = '4917'
     
     def __init__(self):
         microprocessor.__init__(self)
@@ -34,8 +35,10 @@ class processor(microprocessor):
         }
     
     
-    def load_program(self, path=None):
+    def load_program(self, path=None, addextension=True):
         if path:
+            if addextension:
+                path = path + '.' + self.extension
             program_file = open(path, 'r')
             ip = 0 # instruction pointer
             while 1:

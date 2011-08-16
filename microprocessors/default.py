@@ -2,6 +2,7 @@
 
 class microprocessor:
     name = 'microprocessor'
+    extension = 'asm'
     
     def __init__(self):
         self.memory_locations = []
@@ -33,5 +34,5 @@ class microprocessor:
         ...
     
     
-    def load_program(self, path=None):
+    def load_program(self, path=None, addextension=True):
         ...

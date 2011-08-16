@@ -4,6 +4,7 @@ from .unsw4917 import processor as microprocessor
 
 class processor(microprocessor):
     name = 'unsw8918'
+    extension = '8918'
     
     def __init__(self):
         microprocessor.__init__(self)
